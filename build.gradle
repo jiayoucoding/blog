@@ -16,8 +16,8 @@ checkstyle {
 }
 
 repositories {
-    maven { url 'https://maven.aliyun.com/repository/public/' }
-    maven { url 'https://maven.aliyun.com/repository/spring/' }
+//    maven { url 'https://maven.aliyun.com/repository/public/' }
+//    maven { url 'https://maven.aliyun.com/repository/spring/' }
     mavenLocal()
     mavenCentral()
 }
@@ -35,11 +35,11 @@ configurations {
 
 configurations.all {
     // Aligning log4j dependency versions to 2.17.1
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        if (details.requested.group == 'org.apache.logging.log4j') {
-            details.useVersion '2.17.1'
-        }
-    }
+//    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//        if (details.requested.group == 'org.apache.logging.log4j') {
+//            details.useVersion '2.17.1'
+//        }
+//    }
 }
 
 bootJar {
@@ -122,7 +122,8 @@ dependencies {
 
     implementation "kr.pe.kwonnam.freemarker:freemarker-template-inheritance:$templateInheritanceVersion"
     implementation "net.coobird:thumbnailator:$thumbnailatorVersion"
-    implementation "net.sf.image4j:image4j:$image4jVersion"
+//    implementation "net.sf.image4j:image4j:$image4jVersion"
+    implementation group: 'org.jclarion', name: 'image4j', version: '0.7'
     implementation "org.flywaydb:flyway-core:$flywayVersion"
     implementation "com.google.zxing:core:$zxingVersion"
     implementation "io.github.java-diff-utils:java-diff-utils:$diffUtilsVersion"
